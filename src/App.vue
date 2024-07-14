@@ -1,9 +1,8 @@
 <template>
     <div id="app" class="bg-yellow-50 min-h-screen text-center text-black">
         <div class="p-6 m-auto h-screen bg-yellow-50 bg-blend-hard-light w-full flex"
-            style="background-image: url('src/assets/wave9.png');">
+            :style="{ backgroundImage: `url(${wave9})` }">
             <div class="flex flex-col items-center justify-center w-full">
-                <!-- style="background-image: url('src/assets/beach.jpg');"> -->
                 <header class="mb-1">
                     <img :src="profilePicture" alt="Profile Picture"
                         class="bg-slate-200 rounded-full object-cover w-44 h-44 mx-auto mb-4 drop-shadow-[2px_4px_3px_#0000009c]" />
@@ -25,11 +24,10 @@
                 <section id="contact" class="pt-4 rounded-md flex items-center justify-center">
                     <!-- <h3 class="text-xl font-semibold">Contact Me</h3> -->
                     <div class="flex gap-10 justify-center items-center">
-                        <a :href="'mailto:' + email"><img src="../src/assets/email.svg" alt="Email icon"
-                                class="w-14"></a>
+                        <a :href="'mailto:' + email"><img src="@/assets/email.svg" alt="Email icon" class="w-14"></a>
                         <a href="https://www.linkedin.com/in/adrian-rodriguez-dev/" target="_blank"><img
-                                src="../src/assets/linkedin.svg" alt="LinkedIn icon" class="w-10"></a>
-                        <a href="https://github.com/zzadrianzz" target="_blank"><img src="../src/assets/github.svg"
+                                src="@/assets/linkedin.svg" alt="LinkedIn icon" class="w-10"></a>
+                        <a href="https://github.com/zzadrianzz" target="_blank"><img src="@/assets/github.svg"
                                 alt="GitHub icon" class="w-10"></a>
                     </div>
                     <!-- <p class="mt-2">Email: <a :href="'mailto:' + email" class="text-blue-600">{{ email }}</a></p> -->
@@ -40,7 +38,7 @@
         <hr class="mb-10">
 
         <div class="p-6 m-auto text-black bg-top bg-yellow-50 bg-blend-difference"
-            style="background-image: url('src/assets/wave5.png');">
+            :style="{ backgroundImage: `url(${wave5})` }">
             <h1 class="mb-6 text-3xl">Things I've worked on</h1>
 
             <!-- Resound -->
@@ -153,12 +151,12 @@
         <hr class="mb-10">
 
         <div class="p-6 m-auto text-black bg-top bg-yellow-50 bg-blend-hard-light"
-            style="background-image: url('src/assets/wave8.png');">
+            :style="{ backgroundImage: `url(${wave8})` }">
             <!-- About -->
             <section id="about" class="mb-8 p-4 rounded-md text-black text-center flex flex-col items-center">
                 <h3 class="text-3xl mb-6 font-semibold">More about me</h3>
                 <p class="mt-2"></p>
-                <img src="../src/assets/me-minimized.jpg" alt="Me on a couch"
+                <img src="@/assets/me-minimized.jpg" alt="Me on a couch"
                     class="w-96 mb-8 rounded-md drop-shadow-[2px_4px_3px_#0000009c]" />
                 <div class="text-lg max-w-2xl">
                     <h4 class="font-bold">Active</h4>
@@ -191,12 +189,12 @@
             <section id="contact-bottom" class="mb-8 p-4 rounded-md text-black">
                 <h3 class="text-3xl mb-6 font-semibold">Important Links</h3>
                 <div class="flex gap-5 justify-center items-center">
-                    <a :href="'mailto:' + email"><img src="../src/assets/email.svg" alt="Email icon" class="w-10"></a>
+                    <a :href="'mailto:' + email"><img src="@/assets/email.svg" alt="Email icon" class="w-10"></a>
                     <a href="https://www.linkedin.com/in/adrian-rodriguez-dev/" target="_blank"><img
-                            src="../src/assets/linkedin.svg" alt="LinkedIn icon" class="w-7"></a>
-                    <a href="https://github.com/zzadrianzz" target="_blank"><img src="../src/assets/github.svg"
+                            src="@/assets/linkedin.svg" alt="LinkedIn icon" class="w-7"></a>
+                    <a href="https://github.com/zzadrianzz" target="_blank"><img src="@/assets/github.svg"
                             alt="GitHub icon" class="w-8"></a>
-                    <a href="https://www.youtube.com/@zzadrianzz" target="_blank"><img src="../src/assets/youtube.svg"
+                    <a href="https://www.youtube.com/@zzadrianzz" target="_blank"><img src="@/assets/youtube.svg"
                             alt="YouTube icon" class="w-9"></a>
                 </div>
             </section>
@@ -205,33 +203,42 @@
 </template>
 
 <script>
+import profilePicture from '@/assets/adrian-photo.jpg'
+import resoundLogo from '@/assets/resound-logo.png'
+import resonateLogo from '@/assets/resonate-logo.png'
+import resoundDemo from '@/assets/resound-demo.mov'
+import resonateDemo from '@/assets/resonate-demo.mov'
+import wave9 from '@/assets/wave9.png'
+import wave5 from '@/assets/wave5.png'
+import wave8 from '@/assets/wave8.png'
+
 export default {
     data() {
         return {
-            profilePicture: 'src/assets/adrian-photo.jpg',
+            profilePicture,
             name: 'Adrian Rodriguez',
             title: 'Software Engineer',
             intro: `I'm a Full Stack Software Engineer with a strong attention to detail and a love for collaboration. Beyond engineering, I run an educational YouTube channel with 25k subscribers that focuses on helping Dota 2 Dota 2 players improve and achieve their goals. When I'm not immersed in technology, you can find me exploring the town and visiting local shops. Hit me up if you want to chat or work together :)`,
             email: 'adrian.rodriguez.dev@gmail.com',
             projects: [
                 {
-                    logo: 'src/assets/resound-logo.png',
+                    logo: resoundLogo,
                     title: 'Resound - Software Engineer',
                     headline: 'Artificial Intelligence podcast editing tool',
-                    video: 'src/assets/resound-demo.mov',
+                    video: resoundDemo,
                     description: 'Resound automates podcast editing with AI. As a Software Engineer I collaborated closely with engineers and designers to build seamless features across the whole stack.',
-                    roleOne: 'Custom Audio Waveform Experience: Developed a custom audio waveform editor using Vue, JavaScript, and open source libraries. This tool significantly reduced manual editing time for users by allowing them to easily edit AI-detected disfluencies.',
-                    roleTwo: 'Full Page Editor: Designed and developed a seamless multi-track editing experience, enhancing the usability and functionality of the platform. Collaborated extensively with designers to ensure a superior user experience for both current and future features.',
                 },
                 {
-                    logo: 'src/assets/resonate-logo.png',
+                    logo: resonateLogo,
                     title: 'Resonate Recordings - Software Engineer',
                     headline: 'Podcast editing services and production platform',
-                    video: 'src/assets/resonate-demo.mov',
+                    video: resonateDemo,
                     description: 'Resonate Recordings is a podcast editing service and full production platform aiming to make podcasting easier. My focus was to optimize and improve the platform experience for podcasters and their teams.',
                 }
             ],
-            about: 'Small section about me as a person.'
+            wave9,
+            wave5,
+            wave8,
         };
     }
 };
